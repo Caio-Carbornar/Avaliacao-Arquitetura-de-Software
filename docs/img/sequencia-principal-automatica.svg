@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="420" font-family="Arial" font-size="12">
+<rect width="620" height="420" fill="white"/>
+<polygon points="60,360 150.0,360 60,270.0" fill="#f8d7da"/>
+<polygon points="360,60 270.0,60 360,150.0" fill="#f8d7da"/>
+<text x="66.0" y="348.0">Zona de Dor</text>
+<text x="288.0" y="72.0">Zona de Inutilidade</text>
+<line x1="60" y1="60" x2="360" y2="360" stroke="#5B9BD4" stroke-width="2" stroke-dasharray="6,4"/>
+<line x1="60" y1="360" x2="360" y2="360" stroke="#333"/>
+<line x1="60" y1="360" x2="60" y2="60" stroke="#333"/>
+<text x="150.0" y="408">Instabilidade (I)</text>
+<text x="12" y="210.0" transform="rotate(-90 12 210.0)">Abstracionalidade (A)</text>
+<text x="50" y="375">0</text>
+<text x="356" y="375">1</text>
+<text x="45" y="64">1</text>
+<circle cx="60.0" cy="60.0" r="7" fill="#1A2D42"/>
+<text x="72.0" y="64.0">Domain.Ports</text>
+<circle cx="360.0" cy="360.0" r="7" fill="#1A2D42"/>
+<text x="372.0" y="304.0">Application</text>
+<text x="372.0" y="319.0">Infrastructure.Autonomia</text>
+<text x="372.0" y="334.0">Infrastructure.Messaging</text>
+<text x="372.0" y="349.0">Infrastructure.Persistence</text>
+<text x="372.0" y="364.0">Infrastructure.Protocolos</text>
+</svg>
