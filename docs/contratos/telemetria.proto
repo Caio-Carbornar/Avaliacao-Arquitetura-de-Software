@@ -1,0 +1,21 @@
+// telemetria.proto: contrato da mensagem do tópico telemetria.anonimizada
+syntax = "proto3";
+package girdthegrid.telemetria.v1;
+import "google/protobuf/timestamp.proto";
+
+message TelemetryReading {
+  string tenant_id = 1;                      // distribuidora
+  string device_id = 2;                      // pseudonimizado na borda (LGPD)
+  google.protobuf.Timestamp timestamp = 3;   // sempre em UTC
+  double value_kwh = 4;                      // sempre em kWh
+  string regiao = 5;                         // chave de particionamento do tópico
+  Origem origem = 6;                         // protocolo de entrada (ADR 006)
+  uint32 schema_version = 7;
+}
+
+enum Origem {
+  ORIGEM_DESCONHECIDA = 0;
+  ORIGEM_MQTT_JSON = 1;
+  ORIGEM_SCADA_XML = 2;
+  ORIGEM_MODBUS = 3;
+}
