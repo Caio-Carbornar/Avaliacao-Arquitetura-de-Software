@@ -1,0 +1,30 @@
+name: Fitness Functions
+
+# Roda em todo pull request para a main: se alguma regra de arquitetura
+# for violada ou algum pacote sair da sequência principal, o PR fica vermelho.
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  arquitetura:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Métricas de acoplamento (Ca, Ce, I, A, D) e regras de dependência
+        run: python fitness/metricas.py --relatorio docs/relatorio-metricas.md
+      - name: Testes de arquitetura e do ciclo MAPE-K
+        run: python -m unittest discover -s fitness -v
+      - name: Publicar relatório como artefato
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-metricas
+          path: |
+            docs/relatorio-metricas.md
+            docs/img/sequencia-principal-automatica.svg
